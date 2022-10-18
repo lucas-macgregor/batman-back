@@ -18,6 +18,8 @@ const connection = mysql.createConnection({
 //Rutas
 app.get('/gustos',(req,res)=> {
     const sql = 'SELECT * FROM gustos';
+    const hora= new Date();
+    console.log(+hora.getHours()+':'+hora.getMinutes()+':'+hora.getSeconds()+' gustos: '+req.get("msg"));
     res.set('Access-Control-Allow-Origin', 'http://localhost:4200');
     connection.query(sql, (err, results) => {
         if (err) throw err;
@@ -32,6 +34,8 @@ app.get('/gustos',(req,res)=> {
 
 app.get('/opciones',(req,res)=> {
     const sql = 'SELECT * FROM opciones';
+    const hora= new Date();
+    console.log(+hora.getHours()+':'+hora.getMinutes()+':'+hora.getSeconds()+' opciones: '+req.get("msg"));
     res.set('Access-Control-Allow-Origin', 'http://localhost:4200');
     connection.query(sql, (err, results) => {
         if (err) throw err;
@@ -49,6 +53,8 @@ app.post('/agregaropcion', (req,res)=> {
     const opcionObj= {
         opcion: req.body.opcion
     }
+    const hora= new Date();
+    console.log(+hora.getHours()+':'+hora.getMinutes()+':'+hora.getSeconds()+' agregaropciones: '+req.get("msg"));
     connection.query(sql,opcionObj, error => {
         if (error) throw error;
         res.send();
@@ -58,6 +64,8 @@ app.post('/agregaropcion', (req,res)=> {
 app.delete('/quitaropcion/:id', (req,res)=> {
     const {id}= req.params;
     const sql = `DELETE FROM opciones WHERE id=${id}`;
+    const hora= new Date();
+    console.log(+hora.getHours()+':'+hora.getMinutes()+':'+hora.getSeconds()+' quitaropcion: '+req.get("msg"));
     connection.query(sql, error => {
     if (error) throw error;
     res.send();
