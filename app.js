@@ -72,6 +72,30 @@ app.delete('/quitaropcion/:id', (req,res)=> {
     })
 })
 
+app.post('/login', (req,res)=> {
+    username=req.body.username;
+    const sql = `SELECT * FROM usuarios WHERE username='${username}'`;
+    const hora= new Date();
+    console.log(+hora.getHours()+':'+hora.getMinutes()+':'+hora.getSeconds()+' login: '+req.get("msg"));
+    connection.query(sql, (err , results)=> {
+        if (err) throw err;
+        if (results.length===1) {
+            if (results[0].password===req.body.password) {
+                console.log('Contraseña correcta.');
+                res.send({success:true});
+            }
+            else {
+                console.log('Contraseña incorrecta.');
+                res.send({success:false});
+            }
+        }
+        else {
+            console.log('Usuario no existe');
+            res.send({success:false});
+        }
+    })
+});
+
 //Conexion a la DB
 connection.connect(error=>{
     if (error) throw error;
