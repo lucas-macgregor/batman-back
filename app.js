@@ -1,6 +1,7 @@
 const express = require('express');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
+const logger = require("./logger");
 const PORT = process.env.PORT || 3050;
 const app = express();
 const cors=require('cors');
@@ -18,8 +19,7 @@ const connection = mysql.createConnection({
 //Rutas
 app.get('/gustos',(req,res)=> {
     const sql = 'SELECT * FROM gustos';
-    const hora= new Date();
-    console.log(+hora.getHours()+':'+hora.getMinutes()+':'+hora.getSeconds()+' gustos: '+req.get("msg"));
+    logger.info(`Interceptor: ${req.get("msg")}. Get request recibido `);
     res.set('Access-Control-Allow-Origin', 'http://localhost:4200');
     connection.query(sql, (err, results) => {
         if (err) throw err;
@@ -99,7 +99,7 @@ app.post('/login', (req,res)=> {
 //Conexion a la DB
 connection.connect(error=>{
     if (error) throw error;
-    console.log('Base de datos funcionando.');
+    logger.info("Base de datis funcionando.")
+    //console.log('Base de datos funcionando.');
 });
-app.listen(PORT, () => {console.log(`Server levantado en puerto ${PORT}`)});
-
+app.listen(PORT, () => {/*console.log(`Server levantado en puerto ${PORT}`)*/ logger.info(`Server levantado en puerto ${PORT}`)});

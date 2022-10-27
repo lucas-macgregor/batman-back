@@ -1,0 +1,10 @@
+{
+  message: 'Server levantado en puerto 3050',
+  level: 'info',
+  timestamp: 'Oct-27-2022 16:01:00'
+}
+{
+  message: 'Base de datis funcionando.',
+  level: 'info',
+  timestamp: 'Oct-27-2022 16:01:00'
+}
