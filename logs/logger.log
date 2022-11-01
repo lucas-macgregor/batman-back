@@ -8,3 +8,673 @@
   level: 'info',
   timestamp: 'Oct-27-2022 16:01:00'
 }
+{
+  message: 'Server levantado en puerto 3050',
+  level: 'info',
+  timestamp: 'Oct-27-2022 18:11:37'
+}
+{
+  message: 'Base de datis funcionando.',
+  level: 'info',
+  timestamp: 'Oct-27-2022 18:11:37'
+}
+{
+  message: 'Interceptor: Mensaje interceptado :D. Get request recibido ',
+  level: 'info',
+  timestamp: 'Oct-27-2022 18:11:49'
+}
+{
+  message: 'Interceptor: Mensaje interceptado :D. Get request recibido ',
+  level: 'info',
+  timestamp: 'Oct-27-2022 18:11:58'
+}
+{
+  message: 'Server levantado en puerto 3050',
+  level: 'info',
+  timestamp: 'Oct-28-2022 14:04:25'
+}
+{
+  message: 'Base de datis funcionando.',
+  level: 'info',
+  timestamp: 'Oct-28-2022 14:04:25'
+}
+{
+  message: 'Interceptor: Mensaje interceptado :D. Get request recibido ',
+  level: 'info',
+  timestamp: 'Oct-28-2022 14:25:47'
+}
+{
+  message: 'Server levantado en puerto 3050',
+  level: 'info',
+  timestamp: 'Oct-28-2022 14:47:43'
+}
+{
+  message: 'Base de datis funcionando.',
+  level: 'info',
+  timestamp: 'Oct-28-2022 14:47:43'
+}
+{
+  message: 'Server levantado en puerto 3050',
+  level: 'info',
+  timestamp: 'Oct-28-2022 14:47:51'
+}
+{
+  message: 'Base de datos funcionando.',
+  level: 'info',
+  timestamp: 'Oct-28-2022 14:47:51'
+}
+{
+  message: 'Server levantado en puerto 3050',
+  level: 'info',
+  timestamp: 'Oct-28-2022 14:50:24'
+}
+{
+  message: 'Base de datos funcionando.',
+  level: 'info',
+  timestamp: 'Oct-28-2022 14:50:24'
+}
+{
+  message: 'Interceptor: Mensaje interceptado :D. Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Oct-28-2022 14:50:30'
+}
+{
+  message: 'Server levantado en puerto 3050',
+  level: 'info',
+  timestamp: 'Oct-28-2022 15:01:57'
+}
+{
+  message: 'Base de datos funcionando.',
+  level: 'info',
+  timestamp: 'Oct-28-2022 15:01:57'
+}
+{
+  message: 'Interceptor: Mensaje interceptado :D. Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Oct-28-2022 16:14:35'
+}
+{
+  message: 'Interceptor: Mensaje interceptado :D. Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Oct-28-2022 16:16:15'
+}
+{
+  message: 'Server levantado en puerto 3050',
+  level: 'info',
+  timestamp: 'Oct-28-2022 17:56:06'
+}
+{
+  message: 'Base de datos funcionando.',
+  level: 'info',
+  timestamp: 'Oct-28-2022 17:56:06'
+}
+{
+  message: 'Server levantado en puerto 3050',
+  level: 'info',
+  timestamp: 'Oct-28-2022 17:56:14'
+}
+{
+  message: 'Base de datos funcionando.',
+  level: 'info',
+  timestamp: 'Oct-28-2022 17:56:14'
+}
+{
+  message: 'Server levantado en puerto 3050',
+  level: 'info',
+  timestamp: 'Oct-31-2022 15:49:12'
+}
+{
+  message: 'Base de datos funcionando.',
+  level: 'info',
+  timestamp: 'Oct-31-2022 15:49:13'
+}
+{
+  message: 'Interceptor: Mensaje interceptado :D. Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Oct-31-2022 16:02:39'
+}
+{
+  message: 'Interceptor: Mensaje interceptado :D. Get request de opciones recibido',
+  level: 'http',
+  timestamp: 'Oct-31-2022 16:02:39'
+}
+{
+  message: 'Interceptor: Mensaje interceptado :D. Post request de login con clave correcta recibido',
+  level: 'http',
+  timestamp: 'Oct-31-2022 16:11:11'
+}
+{
+  message: 'Interceptor: undefined. Post request de login con usuario inexistente recibido',
+  level: 'http',
+  timestamp: 'Oct-31-2022 16:12:25'
+}
+{
+  message: 'Interceptor: undefined. Post request de login con clave correcta recibido',
+  level: 'http',
+  timestamp: 'Oct-31-2022 16:16:04'
+}
+{
+  message: 'Interceptor: undefined. Post request de login con clave correcta recibido',
+  level: 'http',
+  timestamp: 'Oct-31-2022 16:19:05'
+}
+{
+  message: 'Interceptor: undefined. Post request de login con clave correcta recibido',
+  level: 'http',
+  timestamp: 'Oct-31-2022 16:43:23'
+}
+{
+  message: 'Interceptor: Mensaje interceptado :D. Get request de opciones recibido',
+  level: 'http',
+  timestamp: 'Oct-31-2022 16:43:32'
+}
+{
+  message: 'Interceptor: Mensaje interceptado :D. Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Oct-31-2022 16:43:36'
+}
+{
+  message: 'Interceptor: Mensaje interceptado :D. Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Oct-31-2022 16:43:49'
+}
+{
+  message: 'Interceptor: Mensaje interceptado :D. Get request de opciones recibido',
+  level: 'http',
+  timestamp: 'Oct-31-2022 16:43:50'
+}
+{
+  message: 'Server levantado en puerto 3050',
+  level: 'info',
+  timestamp: 'Oct-31-2022 17:06:21'
+}
+{
+  message: 'Base de datos funcionando.',
+  level: 'info',
+  timestamp: 'Oct-31-2022 17:06:21'
+}
+{
+  message: 'Interceptor: undefined. Post request de login con clave correcta recibido',
+  level: 'http',
+  timestamp: 'Oct-31-2022 17:34:06'
+}
+{
+  message: 'Interceptor: undefined. Post request de login con clave correcta recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 12:42:36'
+}
+{
+  message: 'Server levantado en puerto 3050',
+  level: 'info',
+  timestamp: 'Nov-01-2022 13:00:35'
+}
+{
+  message: 'Base de datos funcionando.',
+  level: 'info',
+  timestamp: 'Nov-01-2022 13:00:35'
+}
+{
+  message: 'Interceptor: . Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 13:00:42'
+}
+{
+  message: 'Server levantado en puerto 3050',
+  level: 'info',
+  timestamp: 'Nov-01-2022 13:01:26'
+}
+{
+  message: 'Base de datos funcionando.',
+  level: 'info',
+  timestamp: 'Nov-01-2022 13:01:26'
+}
+{
+  message: 'Interceptor:  . Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 13:01:30'
+}
+{
+  message: 'Interceptor:  . Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 13:02:06'
+}
+{
+  message: 'Interceptor: undefined. Post request de login con clave correcta recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 13:02:22'
+}
+{
+  message: 'Interceptor:  . Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 13:02:27'
+}
+{
+  message: 'Interceptor:  . Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 13:03:19'
+}
+{
+  message: 'Interceptor:  . Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 13:03:50'
+}
+{
+  message: 'Interceptor:  . Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 13:05:25'
+}
+{
+  message: 'Interceptor:  . Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 13:06:24'
+}
+{
+  message: 'Interceptor:  . Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 13:14:56'
+}
+{
+  message: 'Interceptor: undefined. Post request de login con clave correcta recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 13:17:51'
+}
+{
+  message: 'Server levantado en puerto 3050',
+  level: 'info',
+  timestamp: 'Nov-01-2022 13:19:00'
+}
+{
+  message: 'Base de datos funcionando.',
+  level: 'info',
+  timestamp: 'Nov-01-2022 13:19:00'
+}
+{
+  message: 'Interceptor: undefined. Post request de login con clave correcta recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 13:19:09'
+}
+{
+  message: 'Interceptor: lucas eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imx1Y2FzIiwiaWF0IjoxNjY3MzE5NTQ5LCJleHAiOjE2Njc0MDU5NDl9.mpRBx2YZRQrCKgBhkznhB_URugt1Jyofb6E3-Q6ZClA. Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 13:20:55'
+}
+{
+  message: 'Server levantado en puerto 3050',
+  level: 'info',
+  timestamp: 'Nov-01-2022 13:22:08'
+}
+{
+  message: 'Base de datos funcionando.',
+  level: 'info',
+  timestamp: 'Nov-01-2022 13:22:08'
+}
+{
+  message: 'Interceptor: -UName: lucas -Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imx1Y2FzIiwiaWF0IjoxNjY3MzE5NTQ5LCJleHAiOjE2Njc0MDU5NDl9.mpRBx2YZRQrCKgBhkznhB_URugt1Jyofb6E3-Q6ZClA. Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 13:22:12'
+}
+{
+  message: 'Server levantado en puerto 3050',
+  level: 'info',
+  timestamp: 'Nov-01-2022 13:49:42'
+}
+{
+  message: 'Base de datos funcionando.',
+  level: 'info',
+  timestamp: 'Nov-01-2022 13:49:43'
+}
+{
+  message: 'Interceptor: -UName: lucas -Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imx1Y2FzIiwiaWF0IjoxNjY3MzE5NTQ5LCJleHAiOjE2Njc0MDU5NDl9.mpRBx2YZRQrCKgBhkznhB_URugt1Jyofb6E3-Q6ZClA. Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 13:49:51'
+}
+{
+  message: 'Server levantado en puerto 3050',
+  level: 'info',
+  timestamp: 'Nov-01-2022 13:59:08'
+}
+{
+  message: 'Base de datos funcionando.',
+  level: 'info',
+  timestamp: 'Nov-01-2022 13:59:08'
+}
+{
+  message: 'Interceptor: -UName: lucas -Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imx1Y2FzIiwiaWF0IjoxNjY3MzE5NTQ5LCJleHAiOjE2Njc0MDU5NDl9.mpRBx2YZRQrCKgBhkznhB_URugt1Jyofb6E3-Q6ZClA. Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 13:59:16'
+}
+{
+  message: 'Server levantado en puerto 3050',
+  level: 'info',
+  timestamp: 'Nov-01-2022 14:00:14'
+}
+{
+  message: 'Base de datos funcionando.',
+  level: 'info',
+  timestamp: 'Nov-01-2022 14:00:15'
+}
+{
+  message: 'Server levantado en puerto 3050',
+  level: 'info',
+  timestamp: 'Nov-01-2022 14:00:24'
+}
+{
+  message: 'Base de datos funcionando.',
+  level: 'info',
+  timestamp: 'Nov-01-2022 14:00:24'
+}
+{
+  message: 'Interceptor: -UName: lucas -Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imx1Y2FzIiwiaWF0IjoxNjY3MzE5NTQ5LCJleHAiOjE2Njc0MDU5NDl9.mpRBx2YZRQrCKgBhkznhB_URugt1Jyofb6E3-Q6ZClA. Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 14:00:27'
+}
+{
+  message: 'Server levantado en puerto 3050',
+  level: 'info',
+  timestamp: 'Nov-01-2022 14:00:50'
+}
+{
+  message: 'Base de datos funcionando.',
+  level: 'info',
+  timestamp: 'Nov-01-2022 14:00:50'
+}
+{
+  message: 'Interceptor: -UName: lucas -Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imx1Y2FzIiwiaWF0IjoxNjY3MzE5NTQ5LCJleHAiOjE2Njc0MDU5NDl9.mpRBx2YZRQrCKgBhkznhB_URugt1Jyofb6E3-Q6ZClA. Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 14:00:56'
+}
+{
+  message: 'Server levantado en puerto 3050',
+  level: 'info',
+  timestamp: 'Nov-01-2022 14:19:29'
+}
+{
+  message: 'Base de datos funcionando.',
+  level: 'info',
+  timestamp: 'Nov-01-2022 14:19:29'
+}
+{
+  message: 'Server levantado en puerto 3050',
+  level: 'info',
+  timestamp: 'Nov-01-2022 14:20:34'
+}
+{
+  message: 'Base de datos funcionando.',
+  level: 'info',
+  timestamp: 'Nov-01-2022 14:20:34'
+}
+{
+  message: 'Interceptor: -UName: lucas -Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imx1Y2FzIiwiaWF0IjoxNjY3MzE5NTQ5LCJleHAiOjE2Njc0MDU5NDl9.mpRBx2YZRQrCKgBhkznhB_URugt1Jyofb6E3-Q6ZClA. Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 14:20:40'
+}
+{
+  message: 'Interceptor: -UName: lucas -Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.ejJ1c2VybmFtZSI6Imx1Y2FzIiwiaWF0IjoxNjY3MzE5NTQ5LCJleHAiOjE2Njc0MDU5NDl9.mpRBx2YZRQrCKgBhkznhB_URugt1Jyofb6E3-Q6ZClA. Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 14:21:00'
+}
+{
+  message: 'JWT Validation error: SyntaxError: Unexpected token z in JSON at position 0',
+  level: 'error',
+  timestamp: 'Nov-01-2022 14:21:00'
+}
+{
+  message: 'Interceptor: -UName: lucas -Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.ejJ1c2VybmFtZSI6Imx1Y2FzIiwiaWF0IjoxNjY3MzE5NTQ5LCJleHAiOjE2Njc0MDU5NDl9.mpRBx2YZRQrCKgBhkznhB_URugt1Jyofb6E3-Q6ZClA. Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 14:21:34'
+}
+{
+  message: 'JWT Validation error: SyntaxError: Unexpected token z in JSON at position 0',
+  level: 'error',
+  timestamp: 'Nov-01-2022 14:21:34'
+}
+{
+  message: 'Server levantado en puerto 3050',
+  level: 'info',
+  timestamp: 'Nov-01-2022 14:22:10'
+}
+{
+  message: 'Base de datos funcionando.',
+  level: 'info',
+  timestamp: 'Nov-01-2022 14:22:10'
+}
+{
+  message: 'Interceptor: -UName: lucas -Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.ejJ1c2VybmFtZSI6Imx1Y2FzIiwiaWF0IjoxNjY3MzE5NTQ5LCJleHAiOjE2Njc0MDU5NDl9.mpRBx2YZRQrCKgBhkznhB_URugt1Jyofb6E3-Q6ZClA. Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 14:22:15'
+}
+{
+  message: 'JWT Validation error: SyntaxError: Unexpected token z in JSON at position 0',
+  level: 'error',
+  timestamp: 'Nov-01-2022 14:22:15'
+}
+{
+  message: 'Interceptor: -UName: lucas -Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imx1Y2FzIiwiaWF0IjoxNjY3MzE5NTQ5LCJleHAiOjE2Njc0MDU5NDl9.mpRBx2YZRQrCKgBhkznhB_URugt1Jyofb6E3-Q6ZClA. Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 14:23:27'
+}
+{
+  message: 'Server levantado en puerto 3050',
+  level: 'info',
+  timestamp: 'Nov-01-2022 14:23:50'
+}
+{
+  message: 'Base de datos funcionando.',
+  level: 'info',
+  timestamp: 'Nov-01-2022 14:23:50'
+}
+{
+  message: 'Interceptor: -UName: lucas -Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imx1Y2FzIiwiaWF0IjoxNjY3MzE5NTQ5LCJleHAiOjE2Njc0MDU5NDl9.mpRBx2YZRQrCKgBhkznhB_URugt1Jyofb6E3-Q6ZClA. Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 14:23:53'
+}
+{
+  message: 'JWT Validation error: JsonWebTokenError: invalid signature',
+  level: 'error',
+  timestamp: 'Nov-01-2022 14:23:53'
+}
+{
+  message: 'Server levantado en puerto 3050',
+  level: 'info',
+  timestamp: 'Nov-01-2022 14:24:10'
+}
+{
+  message: 'Base de datos funcionando.',
+  level: 'info',
+  timestamp: 'Nov-01-2022 14:24:10'
+}
+{
+  message: 'Server levantado en puerto 3050',
+  level: 'info',
+  timestamp: 'Nov-01-2022 14:39:33'
+}
+{
+  message: 'Base de datos funcionando.',
+  level: 'info',
+  timestamp: 'Nov-01-2022 14:39:33'
+}
+{
+  message: 'Interceptor: -UName: lucas -Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imx1Y2FzIiwiaWF0IjoxNjY3MzE5NTQ5LCJleHAiOjE2Njc0MDU5NDl9.mpRBx2YZRQrCKgBhkznhB_URugt1Jyofb6E3-Q6ZClA. Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 14:39:36'
+}
+{
+  message: 'Server levantado en puerto 3050',
+  level: 'info',
+  timestamp: 'Nov-01-2022 14:54:09'
+}
+{
+  message: 'Base de datos funcionando.',
+  level: 'info',
+  timestamp: 'Nov-01-2022 14:54:10'
+}
+{
+  message: 'JWT Validation error: JsonWebTokenError: jwt must be provided',
+  level: 'error',
+  timestamp: 'Nov-01-2022 14:54:27'
+}
+{
+  message: 'Post request de login con usuario inexistente recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 14:54:27'
+}
+{
+  message: 'JWT Validation error: JsonWebTokenError: jwt must be provided',
+  level: 'error',
+  timestamp: 'Nov-01-2022 14:55:02'
+}
+{
+  message: 'Post request de login con clave incorrecta recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 14:55:02'
+}
+{
+  message: 'JWT Validation error: JsonWebTokenError: jwt must be provided',
+  level: 'error',
+  timestamp: 'Nov-01-2022 14:55:10'
+}
+{
+  message: 'Post request de login con clave correcta recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 14:55:10'
+}
+{
+  message: 'Server levantado en puerto 3050',
+  level: 'info',
+  timestamp: 'Nov-01-2022 14:56:55'
+}
+{
+  message: 'Base de datos funcionando.',
+  level: 'info',
+  timestamp: 'Nov-01-2022 14:56:55'
+}
+{
+  message: 'JWT Validation error: JsonWebTokenError: jwt must be provided',
+  level: 'error',
+  timestamp: 'Nov-01-2022 14:57:06'
+}
+{
+  message: 'Post request de login con clave incorrecta recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 14:57:06'
+}
+{
+  message: 'Server levantado en puerto 3050',
+  level: 'info',
+  timestamp: 'Nov-01-2022 14:57:45'
+}
+{
+  message: 'Base de datos funcionando.',
+  level: 'info',
+  timestamp: 'Nov-01-2022 14:57:45'
+}
+{
+  message: 'Post request de login con clave incorrecta recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 14:57:47'
+}
+{
+  message: 'Server levantado en puerto 3050',
+  level: 'info',
+  timestamp: 'Nov-01-2022 14:57:59'
+}
+{
+  message: 'Base de datos funcionando.',
+  level: 'info',
+  timestamp: 'Nov-01-2022 14:57:59'
+}
+{
+  message: 'Post request de login con clave correcta recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 14:58:39'
+}
+{
+  message: 'Interceptor: -UName: lucas -Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imx1Y2FzIiwiaWF0IjoxNjY3MzI1NTE5LCJleHAiOjE2Njc0MTE5MTl9.WHLb996n8LmH4hYFVGcaGj8-hr9li67oiReXkAHfHtg. Get request de opciones recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 14:58:44'
+}
+{
+  message: 'Interceptor: -UName: lucas -Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imx1Y2FzIiwiaWF0IjoxNjY3MzI1NTE5LCJleHAiOjE2Njc0MTE5MTl9.WHLb996n8LmH4hYFVGcaGj8-hr9li67oiReXkAHfHtg. Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 14:58:57'
+}
+{
+  message: 'Interceptor: -UName: lucas -Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imx1Y2FzIiwiaWF0IjoxNjY3MzI1NTE5LCJleHAiOjE2Njc0MTE5MTl9.WHLb996n8LmH4hYFVGcaGj8-hr9li67oiReXkAHfHtg. Get request de opciones recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 14:59:11'
+}
+{
+  message: 'Interceptor: -UName: lucas -Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imx1Y2FzIiwiaWF0IjoxNjY3MzI1NTE5LCJleHAiOjE2Njc0MTE5MTl9.WHLb996n8LmH4hYFVGcaGj8-hr9li67oiReXkAHfHtg. Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 14:59:15'
+}
+{
+  message: 'Interceptor: -UName: lucas -Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.ejJ1c2VybmFtZSI6Imx1Y2FzIiwiaWF0IjoxNjY3MzI1NTE5LCJleHAiOjE2Njc0MTE5MTl9.WHLb996n8LmH4hYFVGcaGj8-hr9li67oiReXkAHfHtg. Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 15:00:12'
+}
+{
+  message: 'JWT Validation error: SyntaxError: Unexpected token z in JSON at position 0',
+  level: 'error',
+  timestamp: 'Nov-01-2022 15:00:12'
+}
+{
+  message: 'Invalid token: 401 sent.',
+  level: 'http',
+  timestamp: 'Nov-01-2022 15:00:12'
+}
+{
+  message: 'Interceptor: -UName: lucas -Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.ejJ1c2VybmFtZSI6Imx1Y2FzIiwiaWF0IjoxNjY3MzI1NTE5LCJleHAiOjE2Njc0MTE5MTl9.WHLb996n8LmH4hYFVGcaGj8-hr9li67oiReXkAHfHtg. Get request de opciones recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 15:01:03'
+}
+{
+  message: 'JWT Validation error: SyntaxError: Unexpected token z in JSON at position 0',
+  level: 'error',
+  timestamp: 'Nov-01-2022 15:01:03'
+}
+{
+  message: 'Invalid token: 401 sent.',
+  level: 'http',
+  timestamp: 'Nov-01-2022 15:01:03'
+}
+{
+  message: 'Interceptor: -UName: lucas -Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.ejJ1c2VybmFtZSI6Imx1Y2FzIiwiaWF0IjoxNjY3MzI1NTE5LCJleHAiOjE2Njc0MTE5MTl9.WHLb996n8LmH4hYFVGcaGj8-hr9li67oiReXkAHfHtg. Post request de agregaropcion recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 15:01:11'
+}
+{
+  message: 'JWT Validation error: SyntaxError: Unexpected token z in JSON at position 0',
+  level: 'error',
+  timestamp: 'Nov-01-2022 15:01:11'
+}
+{
+  message: 'Invalid token: 401 sent.',
+  level: 'http',
+  timestamp: 'Nov-01-2022 15:01:11'
+}
+{
+  message: 'Interceptor: -UName: lucas -Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.ejJ1c2VybmFtZSI6Imx1Y2FzIiwiaWF0IjoxNjY3MzI1NTE5LCJleHAiOjE2Njc0MTE5MTl9.WHLb996n8LmH4hYFVGcaGj8-hr9li67oiReXkAHfHtg. Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 15:01:43'
+}
+{
+  message: 'JWT Validation error: SyntaxError: Unexpected token z in JSON at position 0',
+  level: 'error',
+  timestamp: 'Nov-01-2022 15:01:43'
+}
+{
+  message: 'Invalid token: 401 sent.',
+  level: 'http',
+  timestamp: 'Nov-01-2022 15:01:43'
+}
+{
+  message: 'Interceptor: -UName: lucas -Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imx1Y2FzIiwiaWF0IjoxNjY3MzI1NTE5LCJleHAiOjE2Njc0MTE5MTl9.WHLb996n8LmH4hYFVGcaGj8-hr9li67oiReXkAHfHtg. Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 15:01:49'
+}
+{
+  message: 'Interceptor: -UName: lucas -Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imx1Y2FzIiwiaWF0IjoxNjY3MzI1NTE5LCJleHAiOjE2Njc0MTE5MTl9.WHLb996n8LmH4hYFVGcaGj8-hr9li67oiReXkAHfHtg. Get request de gustos recibido',
+  level: 'http',
+  timestamp: 'Nov-01-2022 15:04:40'
+}
