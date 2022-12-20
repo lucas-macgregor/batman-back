@@ -8,9 +8,12 @@ const SECRET_KEY = 'clavesecreta1234';
 const PORT = process.env.PORT || 3050;
 const app = express();
 const cors=require('cors');
+const validateJWT = require('./jwt-functions/jwt-functions').validateJWT;
+const extractTokenInfo = require('./jwt-functions/jwt-functions').extractTokenInfo;
 //const saltRounds=10;
 app.use(bodyParser.json());
 app.use(cors())
+module.exports = app;
 
 //Variables de conexion a mysql
 const connection = mysql.createConnection({
@@ -19,47 +22,6 @@ const connection = mysql.createConnection({
     password: '$Pruebas123',
     database: 'proyectoInicial'
 });
-
-//JWT Validation
-function validateJWT(token) {
-    let decode;
-    if (token!==undefined) {
-        try {
-            decode = jwt.verify(token,SECRET_KEY);
-        } 
-        catch ( error ) {
-            logger.error(`JWT Validation error: ${error}`);
-            decode=null;
-        }
-        if (decode!== null){
-            return true;
-        }
-        else
-            return false;
-        
-    } else 
-        return false;
-}
-
-function extractUsername(token) {
-    let decode;
-    if (token!==undefined) {
-        try {
-            decode = jwt.verify(token,SECRET_KEY);
-        } 
-        catch ( error ) {
-            logger.error(`JWT Validation error: ${error}`);
-            decode=null;
-        }
-        if (decode!== null){
-            return decode.username;
-        }
-        else
-            return false;
-        
-    } else 
-        return false;
-}
 
 //Rutas
 app.get('/gustos',(req,res)=> {
@@ -72,12 +34,12 @@ app.get('/gustos',(req,res)=> {
             if (results.length>0) {
                 res.json(results);
             }
-        })
+        });
     } else {
         res.status(401).send();
-        logger.http(`Invalid token: 401 sent.`)
+        logger.http(`Invalid token: 401 sent.`);
     }
-})
+});
 
 app.get('/opciones',(req,res)=> {
     const sql = 'SELECT * FROM opciones';
@@ -94,19 +56,19 @@ app.get('/opciones',(req,res)=> {
         res.status(401).send();
         logger.http(`Invalid token: 401 sent.`);
     }
-})
+});
 
-app.get('/getusername',(req,res)=> {
+app.get('/getuserinfo',(req,res)=> {
     const token=req.get("token");
     logger.http(`Interceptor: -UName: ${req.get("username")} -Token: ${token}. Get request de getusername recibido`);
     res.set('Access-Control-Allow-Origin', 'http://localhost:4200');
-    if (validateJWT(token)) {
-        res.send({value: extractUsername(token)});
+    if (token && validateJWT(token)) {
+        res.send(extractTokenInfo(token));
     } else {
         res.status(401).send();
         logger.http(`Invalid token: 401 sent.`);
     }
-})
+});
 
 
 app.post('/agregaropcion', (req,res)=> {
@@ -122,9 +84,9 @@ app.post('/agregaropcion', (req,res)=> {
         })
     } else {
         res.status(401).send();
-        logger.http(`Invalid token: 401 sent.`)
+        logger.http(`Invalid token: 401 sent.`);
     }
-})
+});
 
 app.delete('/quitaropcion/:id', (req,res)=> {
     const {id}= req.params;
@@ -133,13 +95,13 @@ app.delete('/quitaropcion/:id', (req,res)=> {
     if (validateJWT(req.get('token'))) {
         connection.query(sql, error => {
         if (error) throw console.error(`${error}`);
-          res.send();
+        res.send();
         })
     } else {
         res.status(401).send();
         logger.http(`Invalid token: 401 sent.`)
     }
-})
+});
 
 app.post('/login', (req,res)=> {
     const username=req.body.username;
@@ -155,7 +117,7 @@ app.post('/login', (req,res)=> {
                         logger.http(`Post request de login con clave correcta recibido`);
                         const expiresIn = 24*60*60;
                         const accessToken = jwt.sign({username}, SECRET_KEY, {expiresIn});
-                        res.send({accessToken:accessToken, expiresIn:expiresIn, name:username});
+                        res.send({accessToken:accessToken, email: queryRes.email, username:username});
                     }
                     else {
                         logger.http(`Post request de login con clave incorrecta recibido`);
@@ -181,4 +143,5 @@ connection.connect(error=>{
     if (error) throw logger.error(`${error}`);
     logger.info("Base de datos funcionando.")
 });
+
 app.listen(PORT, () => {logger.info(`Server levantado en puerto ${PORT}`)});
