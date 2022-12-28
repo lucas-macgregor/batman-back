@@ -1,5 +1,5 @@
 const express = require('express');
-const mysql = require('mysql2');
+const db = require('./db/db.js');
 const bodyParser = require('body-parser');
 const logger = require("./logger");
 const jwt = require('jsonwebtoken');
@@ -10,30 +10,20 @@ const app = express();
 const cors=require('cors');
 const validateJWT = require('./jwt-functions/jwt-functions').validateJWT;
 const extractTokenInfo = require('./jwt-functions/jwt-functions').extractTokenInfo;
-//const saltRounds=10;
 app.use(bodyParser.json());
 app.use(cors())
 module.exports = app;
 
-//Variables de conexion a mysql
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '$Pruebas123',
-    database: 'proyectoInicial'
-});
+//Conexion a mysql
+db.startDB();
 
 //Rutas
 app.get('/gustos',(req,res)=> {
-    const sql = 'SELECT * FROM gustos';
     logger.http(`Interceptor: -UName: ${req.get("username")} -Token: ${req.get("token")}. Get request de gustos recibido`);
     if (validateJWT(req.get('token'))) {
         res.set('Access-Control-Allow-Origin', 'http://localhost:4200');
-        connection.query(sql, (error, results) => {
-            if (error) throw console.error(`${error}`);
-            if (results.length>0) {
-                res.json(results);
-            }
+        db.getGustos().then((resolve)=>{
+            res.json(resolve);
         });
     } else {
         res.status(401).send();
@@ -42,16 +32,12 @@ app.get('/gustos',(req,res)=> {
 });
 
 app.get('/opciones',(req,res)=> {
-    const sql = 'SELECT * FROM opciones';
     logger.http(`Interceptor: -UName: ${req.get("username")} -Token: ${req.get("token")}. Get request de opciones recibido`);
     res.set('Access-Control-Allow-Origin', 'http://localhost:4200');
     if (validateJWT(req.get('token'))) {
-        connection.query(sql, (error, results) => {
-            if (error) throw console.error(`${error}`);
-            if (results.length>0) {
-                res.json(results);
-            }
-        })
+        db.getOpciones().then((resolve)=>{
+            res.json(resolve);
+        });
     } else {
         res.status(401).send();
         logger.http(`Invalid token: 401 sent.`);
@@ -67,21 +53,35 @@ app.get('/getuserinfo',(req,res)=> {
     } else {
         res.status(401).send();
         logger.http(`Invalid token: 401 sent.`);
+   
     }
 });
 
+app.post('/agregargusto', (req,res)=> {
+    const gustosObj= {
+        meGusta: req.body.meGusta,
+        noGusta: req.body.noGusta
+    }
+    logger.http(`Interceptor: -UName: ${req.get("username")} -Token: ${req.get("token")}. Post request de agregargusto recibido`);
+    if (validateJWT(req.get('token'))) {
+        db.agregarGusto(gustosObj).then(()=>{
+            res.send()
+        });
+    } else {
+        res.status(401).send();
+        logger.http(`Invalid token: 401 sent.`);
+    }
+});
 
 app.post('/agregaropcion', (req,res)=> {
-    const sql = 'INSERT INTO opciones SET ?';
     const opcionObj= {
         opcion: req.body.opcion
     }
     logger.http(`Interceptor: -UName: ${req.get("username")} -Token: ${req.get("token")}. Post request de agregaropcion recibido`);
     if (validateJWT(req.get('token'))) {
-        connection.query(sql,opcionObj, error => {
-            if (error) throw console.error(`${error}`);
-            res.send();
-        })
+        db.agregarOpcion(opcionObj).then(()=>{
+            res.send()
+        });
     } else {
         res.status(401).send();
         logger.http(`Invalid token: 401 sent.`);
@@ -90,13 +90,41 @@ app.post('/agregaropcion', (req,res)=> {
 
 app.delete('/quitaropcion/:id', (req,res)=> {
     const {id}= req.params;
-    const sql = `DELETE FROM opciones WHERE id=${id}`;
     logger.http(`Interceptor: -UName: ${req.get("username")} -Token: ${req.get("token")}. Delete request de quitaropcion recibido`);
     if (validateJWT(req.get('token'))) {
-        connection.query(sql, error => {
-        if (error) throw console.error(`${error}`);
-        res.send();
-        })
+        db.quitarOpcion(id).then(()=>{
+            res.send()
+        });
+    } else {
+        res.status(401).send();
+        logger.http(`Invalid token: 401 sent.`)
+    }
+});
+
+app.delete('/quitargusto/:id', (req,res)=> {
+    const {id}= req.params;
+    logger.http(`Interceptor: -UName: ${req.get("username")} -Token: ${req.get("token")}. Delete request de quitargusto recibido`);
+    if (validateJWT(req.get('token'))) {
+        db.quitarGusto(id).then(()=>{
+            res.send()
+        });
+    } else {
+        res.status(401).send();
+        logger.http(`Invalid token: 401 sent.`)
+    }
+});
+
+app.patch('/editargusto/:id', (req,res)=> {
+    const {id}= req.params;
+    const gustosObj= {
+        meGusta: req.body.meGusta,
+        noGusta: req.body.noGusta
+    }
+    logger.http(`Interceptor: -UName: ${req.get("username")} -Token: ${req.get("token")}. Patch request de editargusto recibido`);
+    if (validateJWT(req.get('token'))) {
+        db.editarGusto(id,gustosObj).then(()=>{
+            res.send()
+        });
     } else {
         res.status(401).send();
         logger.http(`Invalid token: 401 sent.`)
@@ -105,11 +133,10 @@ app.delete('/quitaropcion/:id', (req,res)=> {
 
 app.post('/login', (req,res)=> {
     const username=req.body.username;
-    const sql = `SELECT * FROM usuarios WHERE username='${username}'`;
     const hasValidToken=validateJWT(req.get('token'));
     if (!hasValidToken) {
-        connection.query(sql, (error , queryRes)=> {
-            if (error) throw logger.error(`SQL error: ${error}`);
+        db.login(username).then((queryRes)=>{
+            console.log(queryRes);
             if (queryRes.length===1) {
                 bcrypt.compare(req.body.password, queryRes[0].password, (error, validPassword) => {
                     if (error) throw logger.error(`Bcrypt error: ${error}`)
@@ -130,18 +157,12 @@ app.post('/login', (req,res)=> {
                 res.status(409).send();
             }
         });
-    } else {
+    } 
+    else {
         res.status(406).send();
         logger.http(`User ${req.get('username')} already logged in`);
     }
 });
 
-
-
-//Conexion a la DB
-connection.connect(error=>{
-    if (error) throw logger.error(`${error}`);
-    logger.info("Base de datos funcionando.")
-});
 
 app.listen(PORT, () => {logger.info(`Server levantado en puerto ${PORT}`)});

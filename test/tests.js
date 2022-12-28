@@ -1,14 +1,46 @@
-const app = require('../app.js');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const spies=require('chai-spies');
-const Connection = require('mysql2/typings/mysql/lib/Connection.js');
-const validateJWT  = require('../jwt-functions/jwt-functions.js').validateJWT;
-const extractTokenInfo  = require('../jwt-functions/jwt-functions.js').extractTokenInfo;
-const expect = require('chai').expect;
 chai.should();
 chai.use(chaiHttp);
 chai.use(spies);
+const rewire = require('rewire');
+
+//  start of configuration of mocks for testing
+let app = rewire('../app.js');
+let db = app.__get__('db');
+db.agregarOpcion=()=>{
+    return new Promise((resolve)=>{
+        resolve()
+    });
+}
+db.quitarOpcion=()=>{
+    return new Promise((resolve)=>{
+        resolve()
+    });
+}
+db.agregarGusto=()=>{
+    return new Promise((resolve)=>{
+        resolve()
+    });
+}
+db.quitarGusto=()=>{
+    return new Promise((resolve)=>{
+        resolve()
+    });
+}
+db.editarGusto=()=>{
+    return new Promise((resolve)=>{
+        resolve()
+    });
+}
+//  end of configuration of mocks for testing
+
+const validateJWT  = require('../jwt-functions/jwt-functions.js').validateJWT;
+const extractTokenInfo  = require('../jwt-functions/jwt-functions.js').extractTokenInfo;
+const expect = require('chai').expect;
+//const sinon = require('sinon');
+
 
 const validToken='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imx1Y2FzIiwiaWF0IjoxNjcxNDcxOTAzLCJleHAiOjE2NzI5NTgzMDN9.qrbaImy3MXFXxFQA8Uq-zDWOhNzFrqpm8jlt1w7LeC4';
 
@@ -72,10 +104,31 @@ describe('testing gustos', ()=> {
                 done();
             });    
     });
+
+    it('should NOT add a gusto unauthenticated', (done)=> {
+        chai.request(app)
+            .post("/agregargusto")
+            .send({meGusta: 'asd', noGusta: 'qwe'})
+            .end((err,response)=>{
+                response.should.have.status(401);
+                done();
+            });
+    });
+
+    it('should add a gusto', (done)=> {
+        chai.request(app)
+            .post("/agregargusto")
+            .set({"username":'lucas',"token":validToken})
+            .send({meGusta: 'asd', noGusta: 'qwe'})
+            .end((err,response)=>{
+                response.should.have.status(200);
+                done();
+            });
+    });
 });
 
 describe('testing opciones', ()=>{
-    it('should not get opciones',(done)=>{
+    it('should NOT get opciones unauthenticathed',(done)=>{
         chai.request(app)
             .get("/opciones")
             .end((err,response) => {
@@ -92,6 +145,45 @@ describe('testing opciones', ()=>{
                 response.should.have.status(200);
                 response.should.be.a('object');
                 response.body.should.be.a('array');
+                done();
+            });
+    });
+
+    it('should NOT add an option unauthenticated', (done)=> {
+        chai.request(app)
+            .post("/agregaropcion")
+            .send({opcion: 'nueva'})
+            .end((err,response)=>{
+                response.should.have.status(401);
+                done();
+            });
+    });
+
+    it('should add an option', (done)=> {
+        chai.request(app)
+            .post("/agregaropcion")
+            .set({"username":'lucas',"token":validToken})
+            .send({opcion: 'nueva'})
+            .end((err,response)=>{
+                response.should.have.status(200);
+                done();
+            });
+    });
+
+    it('should NOT delete an option unauthenticated', (done)=> {
+        chai.request(app)
+            .delete("/quitaropcion/1")
+            .end((err,response)=>{
+                response.should.have.status(401);
+                done();
+            });
+    });
+    it('should NOT delete an option', (done)=> {
+        chai.request(app)
+            .delete("/quitaropcion/1")
+            .set({"username":'lucas',"token":validToken})
+            .end((err,response)=>{
+                response.should.have.status(200);
                 done();
             });
     });
@@ -114,6 +206,7 @@ describe('testing getuserinfo',()=>{
             .end((err,response)=>{
                 response.should.have.status(200);
                 expect(response.body).to.be.a('object');
+                expect(response.body.username).to.be.a('string');
                 done();
             });
     });
