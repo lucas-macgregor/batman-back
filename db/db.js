@@ -98,7 +98,6 @@ function login (username) {
         const sql = `SELECT * FROM usuarios WHERE username='${username}'`;
         connection.query(sql, (error , queryRes)=> {
             if (error) throw logger.error(`SQL error: ${error}`);
-            console.log(queryRes);
             resolve(queryRes);
         });
     });

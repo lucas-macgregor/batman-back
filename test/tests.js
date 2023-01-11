@@ -36,13 +36,37 @@ db.editarGusto=()=>{
 }
 //  end of configuration of mocks for testing
 
+const worksheets = require('../excel/Worksheet.js');
 const validateJWT  = require('../jwt-functions/jwt-functions.js').validateJWT;
 const extractTokenInfo  = require('../jwt-functions/jwt-functions.js').extractTokenInfo;
 const expect = require('chai').expect;
 //const sinon = require('sinon');
 
 
-const validToken='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imx1Y2FzIiwiaWF0IjoxNjcxNDcxOTAzLCJleHAiOjE2NzI5NTgzMDN9.qrbaImy3MXFXxFQA8Uq-zDWOhNzFrqpm8jlt1w7LeC4';
+const validToken='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imx1Y2FzIiwiaWF0IjoxNjczNDUzMTYzLCJleHAiOjE2NzM1Mzk1NjN9.i9Bhib789GI7_fh34mccB7fBP6von0L01c8zwI_qEg0';
+
+describe('testing over worksheets', ()=> {
+    it('should return filename at creating a new xls',()=>{
+        worksheets.getWorksheet([{id:1,meGusta:'asd',noGusta:'asdasd'}])
+            .then((result)=>{
+                expect(result).to.be.a('string');
+            });
+    });
+
+    it('find file names by extension ', ()=>{
+        worksheets.findByExtension('./','.xls')
+            .then((result)=>{
+                expect(result).to.be.a('string');
+            });
+    });
+
+    it('should delete a file', ()=>{
+        worksheets.deleteWorksheets(['gustos1673456133083.xls'])
+        .then((result)=>{
+            expect(result).to.be.a('string');
+        })
+    });
+});
 
 describe('testing over validateJWT', ()=>{
     it('should return false on empty token', ()=>{
@@ -125,6 +149,66 @@ describe('testing gustos', ()=> {
                 done();
             });
     });
+
+    it('should edit a gusto', (done)=> {
+        chai.request(app)
+            .patch("/editargusto/1")
+            .set({"username":'lucas',"token":validToken})
+            .send({meGusta: 'asd', noGusta: 'qwe'})
+            .end((err,response)=>{
+                response.should.have.status(200);
+                done();
+            });
+    });
+
+    it('should NOT edit a gusto', (done)=> {
+        chai.request(app)
+            .patch("/editargusto/1")
+            .send({meGusta: 'asd', noGusta: 'qwe'})
+            .end((err,response)=>{
+                response.should.have.status(401);
+                done();
+            });
+    });
+
+    
+    it('should NOT delete a gusto unauthenticated', (done)=> {
+        chai.request(app)
+            .delete("/quitargusto/1")
+            .end((err,response)=>{
+                response.should.have.status(401);
+                done();
+            });
+    });
+    
+    it('should NOT delete a gusto', (done)=> {
+        chai.request(app)
+            .delete("/quitargusto/1")
+            .set({"username":'lucas',"token":validToken})
+            .end((err,response)=>{
+                response.should.have.status(200);
+                done();
+            });
+    });
+
+    it('should NOT download xls of gustos unauthenticated',(done)=>{
+        chai.request(app)
+            .post("/descargar")
+            .end((err,response)=>{
+                response.should.have.status(401);
+                done();
+            });
+    });
+
+    //it('should download xls of gustos',(done)=>{
+    //    chai.request(app)
+    //        .post("/descargar")
+    //        .set({"username":'lucas',"token":validToken})
+    //        .end((err,response)=>{
+    //            response.should.have.status(200);
+    //            done();
+    //        });
+    //});
 });
 
 describe('testing opciones', ()=>{
@@ -178,6 +262,7 @@ describe('testing opciones', ()=>{
                 done();
             });
     });
+
     it('should NOT delete an option', (done)=> {
         chai.request(app)
             .delete("/quitaropcion/1")

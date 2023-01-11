@@ -8,6 +8,8 @@ const SECRET_KEY = 'clavesecreta1234';
 const PORT = process.env.PORT || 3050;
 const app = express();
 const cors=require('cors');
+const path = require('path');
+const worksheets = require('./excel/Worksheet.js');
 const validateJWT = require('./jwt-functions/jwt-functions').validateJWT;
 const extractTokenInfo = require('./jwt-functions/jwt-functions').extractTokenInfo;
 app.use(bodyParser.json());
@@ -131,12 +133,45 @@ app.patch('/editargusto/:id', (req,res)=> {
     }
 });
 
+app.post('/descargar', (req,res)=>{
+    const elements = req.body.elementos;
+    if (validateJWT(req.get('token'))) {
+        worksheets.getWorksheet(elements).then((resolve)=>{
+            filename=resolve;
+            if (typeof(resolve)=='string') {
+                const options = {
+                    root: path.join(__dirname)
+                };
+                res.sendFile(resolve,options,(err)=>{
+                    if (err) {
+                        logger.error(err);
+                    }
+                    else {
+                        logger.http('Enviado archivo: '+ resolve);
+                        worksheets.findByExtension('./','.xls').then((fileList)=>{
+                            worksheets.deleteWorksheets(fileList).then((result)=>{
+                                logger.info(result);
+                            });
+                        });
+                    }
+                });
+            }
+            else {
+                logger.error('Error al crear el archivo xls.')
+                res.status(500).send();
+            }
+        });
+    } else {
+        res.status(401).send();
+        logger.http(`Invalid token: 401 sent.`)
+    }
+});
+
 app.post('/login', (req,res)=> {
     const username=req.body.username;
     const hasValidToken=validateJWT(req.get('token'));
     if (!hasValidToken) {
         db.login(username).then((queryRes)=>{
-            console.log(queryRes);
             if (queryRes.length===1) {
                 bcrypt.compare(req.body.password, queryRes[0].password, (error, validPassword) => {
                     if (error) throw logger.error(`Bcrypt error: ${error}`)
