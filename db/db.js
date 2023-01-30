@@ -93,6 +93,20 @@ function editarGusto(id,gustosObj) {
     });
 }
 
+function editarVoto(id,gustosObj) {
+    return new Promise((resolve)=>{
+        let sql=''; 
+        if (gustosObj.type==0)
+            sql= `UPDATE gustos SET noGusta_cont=noGusta_cont+(${gustosObj.value}) WHERE id=${id}`;
+        else
+            sql= `UPDATE gustos SET meGusta_cont=meGusta_cont+(${gustosObj.value}) WHERE id=${id}`;
+        connection.query(sql, error => {
+            if (error) throw console.error(`${error}`);
+            resolve();
+        });
+    });
+}
+
 function login (username) {
     return new Promise((resolve)=>{
         const sql = `SELECT * FROM usuarios WHERE username='${username}'`;
@@ -111,5 +125,6 @@ module.exports={
     quitarOpcion,
     quitarGusto,
     editarGusto,
+    editarVoto,
     login
 };

@@ -34,16 +34,19 @@ db.editarGusto=()=>{
         resolve()
     });
 }
+db.editarVoto=()=>{
+    return new Promise((resolve)=>{
+        resolve()
+    });
+}
 //  end of configuration of mocks for testing
 
 const worksheets = require('../excel/Worksheet.js');
 const validateJWT  = require('../jwt-functions/jwt-functions.js').validateJWT;
 const extractTokenInfo  = require('../jwt-functions/jwt-functions.js').extractTokenInfo;
 const expect = require('chai').expect;
-//const sinon = require('sinon');
 
-
-const validToken='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imx1Y2FzIiwiaWF0IjoxNjczNDUzMTYzLCJleHAiOjE2NzM1Mzk1NjN9.i9Bhib789GI7_fh34mccB7fBP6von0L01c8zwI_qEg0';
+const validToken='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imx1Y2FzIiwiaWF0IjoxNjc0ODM2NzEyLCJleHAiOjE2NzQ5MjMxMTJ9.-yLflMTK6Z37ogQJFqVpzVcAH2O5xCbiBconSlCESW8';
 
 describe('testing over worksheets', ()=> {
     it('should return filename at creating a new xls',()=>{
@@ -181,12 +184,33 @@ describe('testing gustos', ()=> {
             });
     });
     
-    it('should NOT delete a gusto', (done)=> {
+    it('should delete a gusto', (done)=> {
         chai.request(app)
             .delete("/quitargusto/1")
             .set({"username":'lucas',"token":validToken})
             .end((err,response)=>{
                 response.should.have.status(200);
+                done();
+            });
+    });
+
+    it('should edit a voto', (done)=> {
+        chai.request(app)
+            .patch("/editarvoto/1")
+            .set({"username":'lucas',"token":validToken})
+            .send({type: 0, value: 1})
+            .end((err,response)=>{
+                response.should.have.status(200);
+                done();
+            });
+    });
+
+    it('should NOT edit a voto unauthenticated', (done)=> {
+        chai.request(app)
+            .patch("/editarvoto/1")
+            .send({type: 0, value: 1})
+            .end((err,response)=>{
+                response.should.have.status(401);
                 done();
             });
     });
@@ -339,6 +363,26 @@ describe('testing login',()=>{
         .end((err,response)=>{
             response.should.have.status(406);
             done();
+        });
+        
+    });
+
+    it('should process the xls file to the db', (done)=>{
+        worksheets.getWorksheet({
+            id: 0,
+            meGusta: 'asd',
+            meGutsta_cont: '2',
+            noGusta: 'qwe',
+            noGusta_cont: '2'
+        }).then((resolve)=> {
+            chai.request(app)
+                .post("/upload")
+                .attach('file',"../"+resolve)
+                .set({username:'lucas', token:validToken})
+                .end((err,response)=>{
+                    response.should.have.status(200);
+                    done();
+            });
         });
         
     });

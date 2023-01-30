@@ -10,10 +10,14 @@ const app = express();
 const cors=require('cors');
 const path = require('path');
 const worksheets = require('./excel/Worksheet.js');
+const fs= require('fs');
 const validateJWT = require('./jwt-functions/jwt-functions').validateJWT;
 const extractTokenInfo = require('./jwt-functions/jwt-functions').extractTokenInfo;
+const formidable = require('formidable');
+const xlsx = require('xlsx');
+const _ = require('lodash');
 app.use(bodyParser.json());
-app.use(cors())
+app.use(cors());
 module.exports = app;
 
 //Conexion a mysql
@@ -133,6 +137,23 @@ app.patch('/editargusto/:id', (req,res)=> {
     }
 });
 
+app.patch('/editarvoto/:id', (req,res)=> {
+    const {id}= req.params;
+    const votoObj= {
+        type: req.body.type,
+        value: req.body.value
+    }
+    logger.http(`Interceptor: -UName: ${req.get("username")} -Token: ${req.get("token")}. Patch request de editarvoto recibido`);
+    if (validateJWT(req.get('token'))) {
+        db.editarVoto(id,votoObj).then(()=>{
+            res.send()
+        });
+    } else {
+        res.status(401).send();
+        logger.http(`Invalid token: 401 sent.`)
+    }
+});
+
 app.post('/descargar', (req,res)=>{
     const elements = req.body.elementos;
     if (validateJWT(req.get('token'))) {
@@ -160,6 +181,77 @@ app.post('/descargar', (req,res)=>{
                 logger.error('Error al crear el archivo xls.')
                 res.status(500).send();
             }
+        });
+    } else {
+        res.status(401).send();
+        logger.http(`Invalid token: 401 sent.`)
+    }
+});
+
+app.post('/upload',(req,res)=> {
+    let form = new formidable.IncomingForm();
+    if (validateJWT(req.get('token'))) {
+        form.parse(req, (err,fields,file) => {
+            if (err)throw err;
+            const oldpath = file.file.filepath;
+            const newpath = './'+file.file.originalFilename;
+            fs.rename(oldpath,newpath, (err)=> {
+                if (err) throw err;
+                const workbook = xlsx.readFile(newpath);
+                if (workbook.SheetNames.includes('Gustos')){
+                    const fileData = xlsx.utils.sheet_to_json(workbook.Sheets.Gustos);
+                    db.getGustos().then((storedData)=> {
+                        let i=0,j=0;
+                        while (i<storedData.length || j<fileData.length) {
+                            if (storedData[i] && fileData[j]) {
+                                if (storedData[i].id===fileData[j].id && !_.isEqual(storedData[i],fileData[j])) {
+                                    db.editarGusto(storedData[i].id,fileData[j]).then(()=>{
+                                    });
+                                    i++;
+                                    j++;
+                                }
+                                else if (storedData[i].id<fileData[j].id){ 
+                                    db.quitarGusto(storedData[i].id).then(()=>{
+                                    });
+                                    i++;
+                                }
+                                else if (storedData[i].id>fileData[j].id){   
+                                    db.agregarGusto(fileData[j]).then(()=>{
+                                    });
+                                    j++;
+                                }
+                                else {
+                                    i++;
+                                    j++;
+                                }
+                            }
+                            else {
+                                while (storedData[i]) {
+                                    db.quitarGusto(storedData[i].id).then(()=>{
+                                    });
+                                    i++;
+                                }
+                                while (fileData[j]){
+                                    db.agregarGusto(fileData[j]).then(()=>{
+                                    });
+                                    j++;
+                                }
+                            }
+
+                        }
+                        res.send();
+                    });
+                }
+                else {
+                    logger.error('El documento no contenia informacion sobre los gustos.')
+                    res.status(500).send();
+                }
+                fs.unlink(newpath, (error)=>{
+                    if (error) {
+                        resolve(error);
+                    }
+                });
+            });
         });
     } else {
         res.status(401).send();
