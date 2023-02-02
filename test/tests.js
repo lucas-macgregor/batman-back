@@ -46,7 +46,7 @@ const validateJWT  = require('../jwt-functions/jwt-functions.js').validateJWT;
 const extractTokenInfo  = require('../jwt-functions/jwt-functions.js').extractTokenInfo;
 const expect = require('chai').expect;
 
-const validToken='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imx1Y2FzIiwiaWF0IjoxNjc0ODM2NzEyLCJleHAiOjE2NzQ5MjMxMTJ9.-yLflMTK6Z37ogQJFqVpzVcAH2O5xCbiBconSlCESW8';
+const validToken='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imx1Y2FzIiwiaWF0IjoxNjc1MTg0MzY5LCJleHAiOjE2NzUyNzA3Njl9.K363mQ9XaPJPj8yFLvnZv_pES-nZbzeqy3uK_Znojng';
 
 describe('testing over worksheets', ()=> {
     it('should return filename at creating a new xls',()=>{
